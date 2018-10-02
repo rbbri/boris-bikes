@@ -31,6 +31,4 @@ private
     bikes.count == 0
   end
 
-  private :full?, :empty?
-
 end
