@@ -19,13 +19,9 @@ describe DockingStation do
 
   it 'show which bikes are docked' do
     station = DockingStation.new
-    bike1 = Bike.new
-    bike2 = Bike.new
-    bike3 = Bike.new
-    station.dock(bike1)
-    station.dock(bike2)
-    station.dock(bike3)
-    expect(station.bikes).to eq [bike1, bike2, bike3]
+    bike = Bike.new
+    station.dock(bike)  
+    expect(station.bike).to eq bike
   end
 
   it 'raises an error when no bikes are docked' do
