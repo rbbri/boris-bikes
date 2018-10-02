@@ -18,21 +18,24 @@ describe DockingStation do
     expect(subject.dock(bike)).to eq "#{bike} successfully docked"
   end
 
-  it 'show which bikes are docked' do
-    station = subject
-    bike = Bike.new
-    station.dock(bike)
-    expect(station.bikes).to eq [bike]
-  end
-
   it 'raises an error when no bikes are docked' do
     expect { subject.release_bike }.to raise_error("No bikes available!")
   end
 
   it 'raises an error when the dock is already full' do
     station = subject
-    DockingStation::DEFAULT_CAPACITY.times { station.dock(Bike.new) }
+    station.capacity.times { station.dock(Bike.new) }
     expect { station.dock(Bike.new) }.to raise_error("Dock full!")
+  end
+
+  it 'should have a default capacity of 20' do
+    expect(subject.capacity).to eq described_class::DEFAULT_CAPACITY
+  end
+
+  it 'sets a capacity when initialized' do
+    cap = 30
+    station = DockingStation.new(cap)
+    expect(station.capacity).to eq cap
   end
 
 end
