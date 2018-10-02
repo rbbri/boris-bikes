@@ -7,6 +7,7 @@ class DockingStation
   end
 
   def dock(bike)
+    raise "Dock full!" if @bike
     @bike = bike
     "#{bike} successfully docked"
   end
