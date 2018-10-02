@@ -11,6 +11,6 @@ class DockingStation
 
   def dock(bike)
     @bikes << bike
-    bike
+    "#{bike} successfully docked"
   end
 end
