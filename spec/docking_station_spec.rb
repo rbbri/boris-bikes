@@ -21,7 +21,7 @@ describe DockingStation do
     station = DockingStation.new
     bike = Bike.new
     station.dock(bike)
-    expect(station.bike).to eq bike
+    expect(station.bikes).to eq [bike]
   end
 
   it 'raises an error when no bikes are docked' do
@@ -30,7 +30,7 @@ describe DockingStation do
 
   it 'raises an error when the dock is already full' do
     station = subject
-    station.dock(Bike.new)
+    20.times { station.dock(Bike.new) }
     expect { station.dock(Bike.new) }.to raise_error("Dock full!")
   end
 
