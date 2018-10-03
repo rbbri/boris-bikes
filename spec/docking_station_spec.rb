@@ -38,4 +38,9 @@ describe DockingStation do
     expect(station.capacity).to eq cap
   end
 
+  it 'stores the condition of a bike when docked' do
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq "#{bike} successfully docked"
+  end
+
 end
