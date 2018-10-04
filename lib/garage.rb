@@ -1,3 +1,5 @@
+require 'pry'
+
 class Garage
 
   attr_accessor :bikes
@@ -5,4 +7,5 @@ class Garage
   def initialize
     @bikes = []
   end
+
 end

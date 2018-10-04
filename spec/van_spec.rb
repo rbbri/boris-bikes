@@ -6,7 +6,7 @@ require 'garage'
 describe Van do
 
   describe '#take' do
-    it 'takes a broken bikes from docking stations' do
+    it 'takes a broken bike from a docking station' do
       docking_station = DockingStation.new
       broken_bike = Bike.new
       docking_station.dock(broken_bike, true)
@@ -14,7 +14,7 @@ describe Van do
       expect(van.take(docking_station.bikes)).to eq [broken_bike]
     end
 
-    it 'does not take working bikes from docking station' do
+    it 'does not take a working bike from a docking station' do
       docking_station = DockingStation.new
       bike = Bike.new
       docking_station.dock(bike, false)
@@ -38,7 +38,7 @@ describe Van do
 
 
   describe '#collect' do
-    it 'collects working bikes from garages' do
+    it 'collects a working bike from a garage' do
       van = Van.new
       garage = Garage.new
       bike = Bike.new
@@ -46,6 +46,19 @@ describe Van do
       van.collect(garage.bikes)
       expect(van.bikes).to eq [bike]
     end
+  end
+
+  describe '#distribute' do
+    it 'distributes a working bike to a docking station' do
+      van = Van.new
+      docking_station = DockingStation.new
+      bike = Bike.new
+      van.bikes.concat([bike])
+      van.distribute(docking_station.bikes)
+      expect(docking_station.bikes).to eq [bike]      
+    end
+
+
   end
 
 end

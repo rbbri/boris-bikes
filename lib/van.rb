@@ -22,4 +22,8 @@ class Van
     garage.bikes.concat(@bikes)
   end
 
+  def distribute(docking_station)
+    docking_station.concat(@bikes)
+  end
+
 end
