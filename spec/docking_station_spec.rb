@@ -4,14 +4,14 @@ describe DockingStation do
 
   it { is_expected.to respond_to :release_bike }
 
+  it { is_expected.to respond_to :dock }
+
   it 'releases a bike that should be working' do
     station = subject
     bike = Bike.new
     station.dock(bike)
     expect(station.release_bike).to be_working
   end
-
-  it { is_expected.to respond_to :dock }
 
   it 'displays a message when a bike is docked' do
     bike = Bike.new
@@ -38,9 +38,12 @@ describe DockingStation do
     expect(station.capacity).to eq cap
   end
 
-  it 'stores the condition of a bike when docked' do
+  it 'allows a user to report a broken bike when they return it' do
+    station = DockingStation.new
     bike = Bike.new
-    expect(subject.dock(bike)).to eq "#{bike} successfully docked"
+    station.dock(bike, true)
+    expect(station.bikes[0].working?).to eq false
   end
+
 
 end
