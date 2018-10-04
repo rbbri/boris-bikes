@@ -9,8 +9,8 @@ class DockingStation
   end
 
   def release_bike
-    @bikes.each do |bike|
-      return bike if bike.working?
+    @bikes.each_with_index do |bike, index|
+      return @bikes.delete_at(index) if bike.working?
     end
     raise "No bikes available!"
   end
