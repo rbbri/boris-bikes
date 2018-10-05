@@ -1,7 +1,5 @@
-require 'docking_station'
-require 'bike'
 require 'van'
-require 'garage'
+
 
 describe Van do
 
@@ -55,7 +53,7 @@ describe Van do
       bike = Bike.new
       van.bikes.concat([bike])
       van.distribute(docking_station.bikes)
-      expect(docking_station.bikes).to eq [bike]      
+      expect(docking_station.bikes).to eq [bike]
     end
 
 

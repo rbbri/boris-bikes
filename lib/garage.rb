@@ -7,5 +7,6 @@ class Garage
   def initialize
     @bikes = []
   end
+  
 
 end

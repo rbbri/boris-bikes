@@ -1,5 +1,3 @@
-require 'pry'
-
 class Van
 
   attr_accessor :bikes

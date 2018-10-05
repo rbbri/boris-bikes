@@ -1,9 +1,9 @@
-require 'docking_station'
-require 'bike'
-require 'van'
 require 'garage'
 
 describe 'Garage' do
+
+  let(:broken_bike) { double(:bike, working?: false) }
+
 
   it "fixes broken bikes" do
     garage = Garage.new

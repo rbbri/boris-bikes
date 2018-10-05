@@ -1,5 +1,5 @@
 class DockingStation
-  attr_reader :capacity, :bikes
+  attr_accessor :capacity, :bikes
 
   DEFAULT_CAPACITY = 20
 
@@ -12,7 +12,7 @@ class DockingStation
     @bikes.each_with_index do |bike, index|
       return @bikes.delete_at(index) if bike.working?
     end
-    raise "No bikes available!"
+    "No bikes available!"
   end
 
   def dock(bike, broken = false)
